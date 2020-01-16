@@ -15,11 +15,23 @@ class TaskController {
     static let shared = TaskController()
     
     // MARK: - Properties
-    var tasks: [Task] {
-        let moc = CoreDataStack.context
+    
+    // Create a variable to access the fetched results controller
+    var fetchedResultsController: NSFetchedResultsController<Task>
+    
+    // Create an initializer that gives our fetchedResultsController a value
+    init() {
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
-        let results = try? moc.fetch(fetchRequest)
-        return results ?? []
+        
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "isComplete", ascending: true)]
+        
+        let resultsController: NSFetchedResultsController<Task> = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack.context, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController = resultsController
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            print("Error with fetching results \(error.localizedDescription)")
+        }
     }
     
     func add(taskWithName name: String, notes: String?, due: Date?) {
