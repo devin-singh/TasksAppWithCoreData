@@ -12,28 +12,46 @@ import CoreData
 class TaskController {
     
     //Singleton
-    let shared = TaskController()
+    static let shared = TaskController()
     
     // MARK: - Properties
-    var tasks: [Task] = [Task(name: "Test1"), Task(name: "Test", notes: "Hello", due: Date())]
+    var tasks: [Task] {
+        let moc = CoreDataStack.context
+        let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
+        let results = try? moc.fetch(fetchRequest)
+        return results ?? []
+    }
     
     func add(taskWithName name: String, notes: String?, due: Date?) {
-        
+        _ = Task(name: name, notes: notes, due: due)
+        saveToPersistentStore()
     }
     
     func update(task: Task, name: String, notes: String?, due: Date?) {
-        
+        task.name = name
+        task.notes = notes
+        task.due = due
+        saveToPersistentStore()
     }
     
     func remove(task: Task) {
-        
+        if let moc = task.managedObjectContext {
+            moc.delete(task)
+            saveToPersistentStore()
+        }
+    }
+    
+    func toggleIsCompleteFor(task: Task) {
+        task.isComplete = !task.isComplete
+        saveToPersistentStore()
     }
     
     func saveToPersistentStore() {
-        
-    }
-    
-    func fetchTasks() -> [Task] {
-        return [Task()]
+        let moc = CoreDataStack.context
+        do {
+            try moc.save()
+        } catch let error {
+            print("There was a problem saving \(error)")
+        }
     }
 }

@@ -18,6 +18,8 @@
 		65F275CA23CFBA6F009D7626 /* Task.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65F275C823CFBA6F009D7626 /* Task.xcdatamodeld */; };
 		65F275CC23CFBB66009D7626 /* Task+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F275CB23CFBB66009D7626 /* Task+Convenience.swift */; };
 		65F275CE23CFBC78009D7626 /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F275CD23CFBC78009D7626 /* TaskController.swift */; };
+		65F275D023CFCD22009D7626 /* DateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F275CF23CFCD22009D7626 /* DateHelpers.swift */; };
+		65F275D223CFD326009D7626 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F275D123CFD326009D7626 /* ButtonTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		65F275C923CFBA6F009D7626 /* Task.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Task.xcdatamodel; sourceTree = "<group>"; };
 		65F275CB23CFBB66009D7626 /* Task+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+Convenience.swift"; sourceTree = "<group>"; };
 		65F275CD23CFBC78009D7626 /* TaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskController.swift; sourceTree = "<group>"; };
+		65F275CF23CFCD22009D7626 /* DateHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelpers.swift; sourceTree = "<group>"; };
+		65F275D123CFD326009D7626 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 			children = (
 				65F275C623CFB9D8009D7626 /* CoreDataStack.swift */,
 				65F275CB23CFBB66009D7626 /* Task+Convenience.swift */,
+				65F275CF23CFCD22009D7626 /* DateHelpers.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -105,6 +110,7 @@
 			children = (
 				65F275C223CFB8E8009D7626 /* TaskListTableViewController.swift */,
 				65F275C423CFB983009D7626 /* TaskDetailTableViewController.swift */,
+				65F275D123CFD326009D7626 /* ButtonTableViewCell.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -208,7 +214,9 @@
 				658E9DF823CFB661003B85E4 /* AppDelegate.swift in Sources */,
 				658E9DFA23CFB661003B85E4 /* SceneDelegate.swift in Sources */,
 				65F275CE23CFBC78009D7626 /* TaskController.swift in Sources */,
+				65F275D223CFD326009D7626 /* ButtonTableViewCell.swift in Sources */,
 				65F275C523CFB983009D7626 /* TaskDetailTableViewController.swift in Sources */,
+				65F275D023CFCD22009D7626 /* DateHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
