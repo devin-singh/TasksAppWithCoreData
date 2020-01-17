@@ -60,5 +60,6 @@ class TaskDetailTableViewController: UITableViewController {
         taskNameTextField.text = task.name
         dueDateTextField.text = task.due?.stringValue()
         notesTextView.text = task.notes
+        self.title = task.name
     }
 }

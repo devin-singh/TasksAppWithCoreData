@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Task List Table View Controller-->
+        <!--Tasks-->
         <scene sceneID="BNz-NR-AjM">
             <objects>
                 <tableViewController id="Atd-ay-qc3" customClass="TaskListTableViewController" customModule="Task" customModuleProvider="target" sceneMemberID="viewController">
@@ -60,7 +60,7 @@
                             <outlet property="delegate" destination="Atd-ay-qc3" id="VSM-DJ-47j"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="yKq-Z9-nri">
+                    <navigationItem key="navigationItem" title="Tasks" id="yKq-Z9-nri">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="WHt-Xm-epT">
                             <connections>
                                 <segue destination="YLp-ii-9gN" kind="show" identifier="newDetailVC" id="gi7-yW-aDX"/>
