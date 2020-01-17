@@ -25,7 +25,7 @@ class TaskController {
         
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "isComplete", ascending: true)]
         
-        let resultsController: NSFetchedResultsController<Task> = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack.context, sectionNameKeyPath: nil, cacheName: nil)
+        let resultsController: NSFetchedResultsController<Task> = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataStack.context, sectionNameKeyPath: "isComplete", cacheName: nil)
         fetchedResultsController = resultsController
         do {
             try fetchedResultsController.performFetch()
@@ -47,11 +47,12 @@ class TaskController {
     }
     
     func remove(task: Task) {
-        if let moc = task.managedObjectContext {
-            moc.delete(task)
+//        if let moc = task.managedObjectContext {
+//            moc.delete(task)
+        CoreDataStack.context.delete(task)
             saveToPersistentStore()
         }
-    }
+    
     
     func toggleIsCompleteFor(task: Task) {
         task.isComplete = !task.isComplete
